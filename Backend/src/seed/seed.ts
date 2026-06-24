@@ -417,6 +417,18 @@ async function main() {
     try {
         console.log('🔄 Starting seed process...');
 
+        // Check if database is already seeded
+        try {
+            const checkRes = await pool.query('SELECT COUNT(*) FROM "SchoolMonthly"');
+            const count = parseInt(checkRes.rows[0].count, 10);
+            if (count > 0) {
+                console.log(`✅ Database is already seeded (${count} school monthly records found). Skipping seeding.`);
+                return;
+            }
+        } catch (err) {
+            console.log('📝 Database tables not found or empty. Proceeding with schema initialization and seeding...');
+        }
+
         console.log('📝 Initializing database schema from schema.sql...');
         const schemaPath = path.join(__dirname, '..', 'models', 'schema.sql');
         const schemaSql = fs.readFileSync(schemaPath, 'utf8');
