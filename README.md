@@ -1,92 +1,336 @@
-Mantra4Change PBL Program Intelligence & Grant Reporting Assistant
-A full‑stack application that transforms raw school‑level PBL data into actionable program insights and grant‑ready reports. Built with React + Vite + Ant Design + Recharts for the frontend, Node.js + Express + PostgreSQL for the backend, and a deterministic risk engine for transparent decision support.
+# Mantra4Change PBL Program Intelligence & Grant Reporting Assistant
 
+## Overview
 
- Features
-Interactive Dashboard – Filter by month, district, block, grade, and subject. View KPIs (participation, evidence, attendance) with month‑over‑month trends.
+The **PBL Program Intelligence & Grant Reporting Assistant** is a full-stack analytics platform designed for **Mantra4Change** to transform raw Project-Based Learning (PBL) implementation data into actionable insights for program teams, district leaders, and grant managers.
 
-District & Block Performance – Instantly see high‑ and low‑performing geographies with risk classifications (On Track / Behind / At Risk / Critical).
+The platform enables stakeholders to monitor program performance across schools, identify implementation risks early, track grant utilization, and generate evidence-backed reports for donors and leadership teams.
 
-Deterministic Risk Engine – Code‑based thresholds classify performance, no AI black boxes.
+---
 
-Grant Reporting Assistant – Select a grant and month to view finance utilization, outcomes, milestones, evidence assets, and an auto‑generated narrative (AI‑enhanced or rule‑based).
+## Problem Statement
 
-Export‑ready Summaries – Prepare review discussion points and grant sections with traceable source facts.
+Education programs often collect large volumes of implementation data across schools, districts, and blocks. However, converting this data into meaningful insights for decision-making and donor reporting is time-consuming and largely manual.
 
+This platform solves that challenge by:
 
- Tech Stack
-Frontend
-Vite – fast build tool and dev server
+* Centralizing PBL implementation data
+* Monitoring program performance in real time
+* Identifying underperforming geographies
+* Generating grant-ready narratives and reports
+* Providing transparent, traceable, and evidence-backed insights
 
-React 18 – UI library
+---
 
-TypeScript – type safety
+## Key Features
 
-Ant Design – component library and theming
+### Interactive Performance Dashboard
 
-Recharts – charting library for KPIs and trends
+Monitor program implementation through dynamic dashboards with filters for:
 
-Axios – HTTP client
+* Month
+* District
+* Block
+* Grade
+* Subject
 
-Backend
-Node.js + Express – REST API server
+Track key performance indicators including:
 
-PostgreSQL – relational database
+* Student Participation Rate
+* Evidence Submission Rate
+* Attendance Rate
+* Month-over-Month Growth Trends
 
-node‑postgres (pg) – database driver
+---
 
-TypeScript – type safety
+### District & Block Performance Intelligence
 
-dotenv – environment variables
+Compare performance across geographies and identify areas requiring intervention.
 
-CORS – cross‑origin support
+Capabilities include:
 
+* District ranking
+* Block-level performance analysis
+* Performance benchmarking
+* Trend monitoring
 
-nstallation & Setup
-1. Clone the Repository
+---
 
-git clone <repository‑url>
+### Deterministic Risk Classification Engine
 
+A transparent rule-based risk engine evaluates implementation health using predefined thresholds.
 
+Risk Categories:
 
- Backend Setup
-bash
+| Category | Description                                     |
+| -------- | ----------------------------------------------- |
+| On Track | Performing above expected benchmarks            |
+| Behind   | Slight performance decline requiring monitoring |
+| At Risk  | Significant decline requiring intervention      |
+| Critical | Immediate action required                       |
+
+Unlike black-box AI systems, every classification is fully explainable and traceable.
+
+---
+
+### Grant Reporting Assistant
+
+Generate donor-ready reporting summaries using program and financial data.
+
+Features include:
+
+* Grant-wise reporting
+* Financial utilization tracking
+* Milestone monitoring
+* Outcome measurement
+* Evidence asset aggregation
+* Auto-generated narratives
+
+The reporting workflow significantly reduces manual effort while ensuring consistency and auditability.
+
+---
+
+### Export-Ready Review Summaries
+
+Create leadership and donor discussion notes with:
+
+* Key observations
+* Risks and challenges
+* Success highlights
+* Recommended actions
+* Supporting evidence
+
+---
+
+## System Architecture
+
+### Frontend
+
+Built using modern React technologies for performance and scalability.
+
+**Technologies**
+
+* React 18
+* Vite
+* TypeScript
+* Ant Design
+* Recharts
+* Axios
+
+### Backend
+
+RESTful API architecture designed for maintainability and future extensibility.
+
+**Technologies**
+
+* Node.js
+* Express.js
+* TypeScript
+* PostgreSQL
+* node-postgres (pg)
+* dotenv
+* CORS
+
+### Database
+
+PostgreSQL stores:
+
+* School performance data
+* Attendance records
+* Evidence submissions
+* Grant information
+* Financial utilization records
+* Generated reports
+
+---
+
+## Project Structure
+
+```text
+project-root/
+│
+├── Frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── types/
+│   │   └── charts/
+│   │
+│   └── package.json
+│
+├── Backend/
+│   ├── src/
+│   │   ├── routes/
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   ├── repositories/
+│   │   ├── middleware/
+│   │   └── utils/
+│   │
+│   └── package.json
+│
+├── database/
+│   ├── schema.sql
+│   └── seed-data/
+│
+└── README.md
+```
+
+---
+
+## Installation & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone <repository-url>
+cd mantra4change-pbl-assistant
+```
+
+---
+
+## Backend Setup
+
+### Install Dependencies
+
+```bash
 cd Backend
 npm install
-Create a .env file in the Backend folder:
+```
 
-env
+### Configure Environment Variables
+
+Create a `.env` file:
+
+```env
 PORT=3001
-DATABASE_URL="postgresql://username:password@localhost:5432/mantra4change"
+
+DATABASE_URL=postgresql://username:password@localhost:5432/mantra4change
+
 AI_ENABLED=false
-OPENAI_API_KEY=your_key_here   # optional
-Run database migrations (or execute the provided schema.sql):
 
-# If you have the schema.sql file, run:
+OPENAI_API_KEY=your_openai_key
+```
+
+### Create Database
+
+```bash
+createdb mantra4change
+```
+
+### Run Schema
+
+```bash
 psql -U username -d mantra4change -f schema.sql
+```
 
-# Seed the database with CSV data:
+### Seed Data
+
+```bash
 npm run seed
-Start the backend server:
+```
 
-bash
+### Start Server
+
+```bash
 npm run dev
-The API will be available at http://localhost:3001.
+```
 
+Backend URL:
 
-. Frontend Setup
-bash
+```text
+http://localhost:3001
+```
+
+---
+
+## Frontend Setup
+
+### Install Dependencies
+
+```bash
 cd Frontend
 npm install
-Create a .env file in the Frontend folder:
+```
 
-env
+### Configure Environment Variables
+
+Create a `.env` file:
+
+```env
 VITE_API_BASE_URL=http://localhost:3001/api
-Start the development server:
+```
 
-bash
+### Start Development Server
+
+```bash
 npm run dev
-The app will be available at http://localhost:3000.
+```
 
-Happy Building! 
+Frontend URL:
 
+```text
+http://localhost:3000
+```
+
+---
+
+## API Modules
+
+### Program Analytics
+
+```http
+GET /api/dashboard
+GET /api/districts
+GET /api/blocks
+GET /api/performance
+```
+
+### Risk Assessment
+
+```http
+GET /api/risk-summary
+GET /api/risk-analysis
+```
+
+### Grant Reporting
+
+```http
+GET /api/grants
+GET /api/grants/:id/report
+```
+
+---
+
+## Future Enhancements
+
+* Predictive risk forecasting
+* AI-powered narrative generation
+* Multi-year trend analysis
+* Automated donor report exports (PDF/Excel)
+* Role-based access control
+* Notification and alert system
+
+---
+
+## Business Impact
+
+The platform helps Mantra4Change:
+
+* Reduce manual reporting effort
+* Improve program monitoring efficiency
+* Detect implementation risks earlier
+* Increase donor reporting transparency
+* Enable evidence-driven decision making
+
+---
+
+## Author
+
+**Archin Chauhan**
+
+Full Stack Developer
+
+Built as part of the Mantra4Change Product Engineering Assessment.
