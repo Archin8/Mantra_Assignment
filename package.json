@@ -1,0 +1,13 @@
+{
+  "name": "mantra4change-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix Backend && npm install --prefix Frontend",
+    "build:frontend": "npm run build --prefix Frontend",
+    "build:backend": "npm run build --prefix Backend",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start": "npm start --prefix Backend",
+    "seed": "npm run seed --prefix Backend"
+  }
+}

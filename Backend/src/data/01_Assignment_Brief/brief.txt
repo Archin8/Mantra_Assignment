@@ -1,0 +1,198 @@
+Download the Candidate Data Package
+The full assignment package is provided as a ZIP file. Download and unzip it before starting the prework.
+Google Drive Link
+https://drive.google.com/file/d/1cEEo7VHYYxNkzf-_HMdNJeGnq8SOOykT/view?usp=drivesdk
+Steps
+
+Open the Google Drive link above.
+
+Click Download to save the ZIP file.
+
+Unzip the downloaded package on your computer.
+
+Open the assignment brief PDF first, then review the primary PBL data and grant reporting evidence
+folders.
+Important
+All data, grant labels, school codes, geography labels, finance units, writeups, images, and media records
+are synthetic and for assessment use only.
+Lead Full-Stack Product Developer Assessment
+PBL Program Intelligence & Grant Reporting Assistant — Pre-Interview Assignment
+Business Context
+Mantra4Change works with education systems across districts, blocks, schools, and program teams. For this
+assignment, assume the team has collected three months of synthetic Project-Based Learning (PBL) implementation
+data from schools in a focus geography.
+The product should help program and leadership users move from raw response data to review-ready decisions, and
+from computed evidence to grant-ready reporting.
+This is not a generic dashboard or chatbot task. We are looking for senior judgment across data modeling,
+analytics, workflow design, engineering quality, and responsible AI use.
+What Program Intelligence Means Here
+Program intelligence is the deterministic layer that converts school-level implementation data into decision support for
+monthly reviews. It should make progress, gaps, risk, and priorities visible without depending on AI.
+
+Ingest and normalize: combine July, August, and September CSV files into a usable application model.
+
+Calculate: compute participation, evidence submission, enrollment, attendance, and month-over-month
+movement.
+
+Classify: apply consistent code-based risk thresholds to districts, blocks, and indicators.
+
+Explain: show why a geography or indicator is on track, behind, at risk, or critical.
+
+Prioritize: identify which districts, blocks, grades, or subjects need follow-up first.
+
+Prepare review: generate structured discussion points for a program review meeting.
+Data Provided
+The candidate package contains two data groups.
+
+Primary PBL data: three monthly CSV files for July 2025, August 2025, and September 2025. These include
+school response fields, synthetic school codes, district/block labels, completion, evidence submission, classes,
+subjects, enrollment, attendance, and derived risk fields.
+
+Grant reporting evidence: three CSV files covering grant profile and finance, grant performance and report
+material, and evidence/media assets. These are synthetic and intentionally anonymized.
+All data is synthetic and for assessment use only. Donor labels, school codes, geography labels, finance units,
+writeups, images, and media records must not be treated as real records.
+Core User Workflows
+Workflow
+Primary User Need
+Expected Product Behavior
+Program review
+Understand progress and risks
+across months, districts, blocks,
+grades, and subjects.
+Interactive filters, KPI cards, trend views, district/block
+comparisons, and deterministic risk explanations.
+Review preparation
+Prepare leadership discussion
+points before monthly review
+meetings.
+Structured summary of achievements, gaps, priority
+geographies, and discussion prompts.
+Grant reporting
+Create a report-ready grant section
+using finance, outcomes,
+milestones, and evidence assets.
+Select grant/month, show facts, link evidence, and
+generate report text that cites computed data.
+Scope & Prioritization
+Build a working end-to-end application for the core program review workflow. A smaller set of complete,
+well-reasoned features scores higher than many unfinished ones.
+Tier 1: Must Work End-to-End
+1
+Program Review Filters: filter by reporting month, district, block, grade, and subject. Dashboard metrics must
+update from the selected filters.
+2
+Monthly Review Dashboard: show total schools, participating schools, participation percentage,
+evidence-submission percentage, total enrollment, attendance, and attendance percentage. Include
+month-over-month movement for at least two metrics.
+3
+District and Block Performance: show high-performing and low-performing geographies. Users should quickly
+see where follow-up is needed.
+4
+Deterministic Risk & Gap Engine: classify indicators or geographies using code, not AI. Suggested thresholds:
+On Track >= 75%; Behind 60% to below 75%; At Risk 35% to below 60%; Critical below 35%.
+5
+Grant Reporting Assistant: let a user select a grant label and reporting month. Show finance utilization,
+outcomes, milestones, risks, linked evidence assets, and synthetic media records. Generate a report-ready grant
+section.
+Tier 2: Complete at Least One Enhancement
+1
+Monthly Review Summary: generate a structured program review summary from deterministic insights. Cover
+achievements, month-over-month changes, risks, priority districts/blocks, and discussion points.
+2
+Program Reporting Assistant: let a user select a month, district, or block and generate a concise report-ready
+narrative. Include the facts used to produce the narrative.
+3
+Report Export: provide a simple export or copy-ready view for program summaries or grant report sections.
+Tier 3: Optional but Valuable
+
+Recommended actions: generate or display 3-5 next actions linked to specific district, block, grade, subject, or
+grant-reporting gaps.
+
+Each action should include owner, priority, due date, status, and linked metric. These action records may be
+generated by your application.
+Grant Report Creation: What We Expect
+The grant-reporting workflow should not be a generic text box. It should assemble a report section from structured
+facts, finance rows, milestone status, performance metrics, and evidence assets.
+
+Selection: user selects a grant label and reporting month.
+
+Fact panel: app shows performance metrics, utilization, milestone summary, risk status, and linked
+evidence/media records.
+
+Narrative generation: AI or mock logic writes a report-ready section using only computed facts and selected
+evidence.
+
+Traceability: generated text should show the source facts used, such as completion rate, evidence rate,
+attendance rate, utilization, milestones, and image/media references.
+
+Guardrail: the report should still work as a deterministic fact summary if AI is disabled.
+Acceptable Report Output
+
+A report preview inside the app is enough.
+
+Export to PDF or DOCX is optional.
+
+The narrative should distinguish computed facts from generated explanation.
+
+Candidates should avoid hallucinated achievements, locations, or evidence not present in the provided data.
+AI Usage Expectations
+AI may be used freely during development. Runtime AI use is optional.
+Preferred runtime flow: deterministic calculations -> structured insights -> generated narrative
+Avoid: raw CSV rows -> AI analysis -> business logic
+Dashboard metrics, risk classifications, priority gaps, and grant fact summaries must work even if the AI call is
+disabled.
+Technical Expectations
+
+Frontend: React, Next.js, Vite, or similar.
+
+Backend: Node.js, Express, Next.js APIs, serverless APIs, or similar.
+
+Database: PostgreSQL, Supabase, SQLite, MongoDB, or static seed data with a clear production plan.
+
+Language: TypeScript preferred; JavaScript acceptable.
+
+AI: real LLM or clearly explained mock/rule-based generator.
+Submission Requirements
+
+GitHub repository.
+
+Working demo URL, if available.
+
+README with setup instructions, architecture overview, data model, assumptions, risk logic, AI workflow or mock
+approach, limitations, production-readiness notes, and future improvements.
+
+Seed data, scripts, or import instructions.
+Clarifying questions may be handled during the live review. Please document assumptions and move forward when
+the data is intentionally ambiguous.
+Live Review
+
+Walk through your data model and risk rules.
+
+Explain how dashboard metrics are calculated.
+
+Show how AI or mock narratives are produced.
+
+Make a small live code change.
+
+Demonstrate that deterministic metrics, risk classifications, and grant fact summaries work with AI disabled.
+Evaluation Criteria
+Area
+What Will Be Evaluated
+Product thinking
+User-centric workflow, review-meeting usefulness, decision support, and report usability.
+Engineering quality
+Maintainable architecture, data flow, code organization, and ability to explain tradeoffs.
+Data & analytics
+Correct calculations, trend logic, risk classification, and handling of CSV inputs.
+AI integration
+Grounded outputs, clear fact/narrative separation, validation approach, and graceful
+fallback.
+Communication
+README clarity, assumptions, limitations, and live explanation quality.
+Production thinking
+Scalability, reliability, security awareness, and operational considerations.
+Success Definition
+Success means connecting PBL implementation data -> program intelligence -> review decisions -> report-ready
+grant communication -> action. We are not looking for the largest implementation. We are looking for a practical,
+explainable product that helps teams understand progress and act on gaps.
